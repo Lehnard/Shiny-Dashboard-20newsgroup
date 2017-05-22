@@ -18,13 +18,12 @@ incProgress(0.25, detail= "Loading trained model...")
                 
                 # Cargamos el modelo entrenado.
                 #load("./modelos/WS_logist_5000_76point5.RData")
-                #load("./modelos/WS_logist_7500_78point5.RData")
-                load("./modelos/WS_logist_19997_81point4.RData")
+                load("./modelos/WS_logist_7500_78point5.RData")
+                
 
         } else {
                 # Cargamos el modelo entrenado.
                 load("./modelos/WS_svm_5000_67point3.RData")
-                #load("./modelos/WS_svm_19997_77point7.RData")
         }
 
 #================================================================================
