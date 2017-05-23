@@ -1,9 +1,15 @@
-################################################################################
-#
-# This is the user-interface definition of a Shiny dashboard web application.
-#  You can run the application by clicking 'Run App' above.
-#
-################################################################################
+#################################################################################
+#                                                                               #
+# This is the user-interface definition of a Shiny dashboard web application.   #
+#  You can run the application by clicking 'Run App' above.                     #
+#                                                                               #
+#  Autores:     Maria Calvo                                                     #
+#               David Grinan                                                    #
+#               Jordi Aceiton                                                   #
+#                                                                               #
+#  Fecha:       22/05/2017                                                      #
+#                                                                               #
+#################################################################################
 
 library(shinydashboard)
 

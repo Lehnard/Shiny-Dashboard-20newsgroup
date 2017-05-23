@@ -1,9 +1,17 @@
-################################################################################
-#
-# This is the server logic of a Shiny dashboard web application. You can run the 
-# application by clicking 'Run App' above.
-#
-################################################################################
+#################################################################################        
+#                                                                               #
+# This is the server logic of a Shiny dashboard web application. You can run    #        
+# the application by clicking 'Run App' above.                                  #
+#                                                                               #
+#                                                                               #
+#  Autores:     Maria Calvo                                                     #
+#               David Grinan                                                    #
+#               Jordi Aceiton                                                   #
+#                                                                               #
+#  Fecha:       22/05/2017                                                      #
+#                                                                               #
+#################################################################################
+
 
 library(tm, quietly= TRUE, verbose= FALSE)
 library(data.table, quietly= TRUE, verbose= FALSE)
@@ -130,7 +138,7 @@ server <- function(input, output, session) {
                 
                                 output$barDiagr2 <- renderPlot(
                                                         par(bg= "black"),
-                                                        barplot(0) )             
+                                                        barplot(0))             
                              
                                 output$resultado <- renderText({""})
                                 
