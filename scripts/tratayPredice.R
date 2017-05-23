@@ -1,14 +1,43 @@
 tratayPredice <- function(texto){
 
-#================================================================================
+#########################################################################################                         
+##                                                                                      #
+##  Autores: Maria Calvo             Fecha: 22/05/2017                                  #
+##           David Grinan                                                               #
+##           Jordi Aceiton                                                              #
+##                                                                                      #        
+##                                                                                      #
+##  tratayPredice(texto)                                                                #        
+##                                                                                      #
+##      Script que toma un texto (plain) con el objetivo de transformarlo al espacio    #
+##      de la matriz TF-IDF para así poder hacer prediccion de clasificacion con él.    #
+##                                                                                      #
+##      Luego el texto se classifica según el modelo entrenado seleccionado que puede   #
+##      encontrarse en "./modelos/" de tipo svm o logistic one vs all.                  #        
+##                                                                                      #
+##  input:                                                                              #
+##                                                                                      #
+##      texto --  Texto plano. p.ej. *.txt                                              #
+##                                                                                      #
+##  output:                                                                             #
+##                                                                                      #
+##      tratayPredice -- lista de 3 componentes que contiene:                           #
+##                              - grupo: el grupo al que se clasifica 'texto'           # 
+##                              - prob: probabilidades de pertenencia de 'texto a las   #
+##                                      distintas clases.                               #
+##                              - grupos: las distintas clases de clasificacion.        #
+##                                                                                      #
+#########################################################################################        
+                
+#========================================================================================
 # INICIALIZAR PROGRESS BAR.
-#================================================================================ 
+#========================================================================================
 
 withProgress(message= "Classifying.", value= 0, {                   
         
-#================================================================================
+#========================================================================================
 # CARGADO DE DATOS Y MODELOS A ENTRENADOS.
-#================================================================================        
+#========================================================================================        
         
 # Primer incremento de la barra de progreso.
 incProgress(0.25, detail= "Loading trained model...")
@@ -19,17 +48,17 @@ incProgress(0.25, detail= "Loading trained model...")
                 # Cargamos el modelo entrenado.
                 #load("./modelos/WS_logist_5000_76point5.RData")
                 #load("./modelos/WS_logist_7500_78point5.RData")
-                load("./WS_logist_19997_77point5.RData")
-                
+                load("./modelos/WS_logist_19997_81point4.RData")
 
         } else {
                 # Cargamos el modelo entrenado.
                 load("./modelos/WS_svm_5000_67point3.RData")
+                #load("./modelos/WS_svm_19997_77point7.RData")
         }
 
-#================================================================================
+#========================================================================================
 # PREPROCESADO DE LOS TEXTOS
-#================================================================================
+#========================================================================================
 
 # Segundo incremento de la barra de progreso.
 incProgress(amount= 0.25, detail= "Pocessing text..." )
@@ -40,9 +69,9 @@ incProgress(amount= 0.25, detail= "Pocessing text..." )
         # Sacamos el contenido de texto de la estructura corpus a un vector de textos.
         proc_text <- as.character(lapply(txt_corpus, '[[', "content" ))
        
-#================================================================================
+#========================================================================================
 # PROYECCION TEXTO SOBRE MATRIZ TFIDF
-#================================================================================
+#========================================================================================
 
 # Tercer incremento de la barra de progreso.
 incProgress(amount= 0.25, detail= "Text to TF-IDF vector..." )
@@ -79,9 +108,9 @@ incProgress(amount= 0.25, detail= "Text to TF-IDF vector..." )
         
         Xpred <- t(as.matrix(text_vec_idf))
   
-#================================================================================
+#========================================================================================
 # CLASIFICACION DE TEXTO.
-#================================================================================
+#========================================================================================
 
 # Cuarto incremento de la barra de progreso.
 incProgress(amount= 0.25, detail= "Text classification..." )

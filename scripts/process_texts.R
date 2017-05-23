@@ -1,40 +1,46 @@
 process_texts <- function(texts_vector, stem= FALSE) {
 
-################################################################################
-##
-##  process_texts(texts_vector)
-##
-##      Convierte un vector de textos (character vector de strings) en una
-##      estructura tipo VCorpus del paquete "tm" y preprocesa su texto con:        
-##      
-##              - textos a minusculas.
-##              - etiqueta direcciones de email y direcciones http o https.
-##              - quita la puntuación.
-##              - quita numeros.
-##              - quita palabras "the", "and" y las stopwords("SMART").     
-##              - quita palabras de un diccionario propio (archivo .txt)
-##              - Lematiza (stem) si stem= TRUE.      
-##      
-##      devuelve una estructura tipo VCorpus con el preprocesado de textos.     
-##        
-##      input:
-##
-##              texts_vector -- un vector de textos. Character vector con 
-##                              "strings" en cada componente. Sera el 
-##                              argumento de VectorSource() del paquete
-##                              "tm".        
-##
-##              stem -- stem= FALSE por defecto. Activa, o no, el stemizado
-##                      del paquete "tm".        
-##
-##      output:
-##
-##              corpus -- El corpus generado con "texts_vector", stemizado  
-##                        o no (stem= TRUE/FALSE) con el preprocesado de     
-##                        texto especificado.   
-##                           
-##
-################################################################################          
+#########################################################################################                         
+##                                                                                      #
+##  Autores: Maria Calvo             Fecha: 22/05/2017                                  #
+##           David Grinan                                                               #
+##           Jordi Aceiton                                                              #
+##                                                                                      #
+##                                                                                      #
+##  process_texts(texts_vector)                                                         #
+##                                                                                      #
+##      Convierte un vector de textos (character vector de strings) en una              #
+##      estructura tipo VCorpus del paquete "tm" y preprocesa su texto con:             #
+##                                                                                      #
+##              - textos a minusculas.                                                  #
+##              - etiqueta direcciones de email y direcciones http o https.             #
+##              - tratamiento para caracteres especiales.                               #  
+##              - quita palabras de stopwords("SMART").                                 #        
+##              - quita la puntuación.                                                  #
+##              - quita numeros.                                                        #
+##              - quita palabras de un diccionario propio (mywords.txt)                 #
+##              - Lematiza (stem) si stem= TRUE.                                        #
+##                                                                                      #
+##      devuelve una estructura tipo VCorpus con el preprocesado de textos.             #
+##                                                                                      #
+##      input:                                                                          #
+##                                                                                      #
+##              texts_vector -- un vector de textos. Character vector con               #
+##                              "strings" en cada componente. Sera el                   #
+##                              argumento de VectorSource() del paquete                 #
+##                              "tm".                                                   #
+##                                                                                      #
+##              stem -- stem= FALSE por defecto. Activa, o no, el stemizado             #             
+##                      del paquete "tm".                                               #
+##                                                                                      #
+##      output:                                                                         #
+##                                                                                      #
+##              corpus -- El corpus generado con "texts_vector", stemizado              #
+##                        o no (stem= TRUE/FALSE) con el preprocesado de                #
+##                        texto especificado.                                           #
+##                                                                                      #
+##                                                                                      #
+#########################################################################################          
         
         library("tm")
         
@@ -65,10 +71,8 @@ process_texts <- function(texts_vector, stem= FALSE) {
         corpus <- tm_map(corpus, removePunctuation)
         # Quita numeros
         corpus <- tm_map(corpus, removeNumbers)
-        # Quita palabras de nuestra lista "words"
-        #smarts <- removePunctuation(stopwords("SMART"))
-        #words2 <- readLines("./words/mystopwords2.txt")
-        #mywords <- words2[!(words2 %in% smarts)]
+        
+        # Quita palabras de nuestra lista "mywords"
         mywords <- readLines("./words/mywords.txt")
         corpus <- tm_map(corpus, removeWords, mywords)
         

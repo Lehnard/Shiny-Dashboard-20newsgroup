@@ -1,26 +1,31 @@
 predict.logist <- function(thetas, Xpred) {
         
-###############################################################################
-##
-##      predict.logist(thetas, Xpred)
-##
-##              Pasandole un vector-matriz de thetas (theta0, theta1, ...) saca
-##              la prediccion de classificacion one vs all - logistic regression
-##              de los ejemplos en Xpred.        
-##
-##      input:
-##
-##              thetas -- Matriz n x m donde n es el numero de features de X i
-##                        m es el numero de clases en one vs all.                
-##
-##              Xpred -- El data set para hacer predicciones del modelo.
-##
-##      output:
-##
-##              ypred -- La clasificacion en clases de los ejemplos en Xpred.
-##
-##        
-###############################################################################        
+#########################################################################################                         
+##                                                                                      #
+##  Autores: Maria Calvo             Fecha: 22/05/2017                                  #
+##           David Grinan                                                               #
+##           Jordi Aceiton                                                              #
+##                                                                                      #
+##                                                                                      # 
+##      predict.logist(thetas, Xpred)                                                   #
+##                                                                                      #
+##              Pasandole un vector-matriz de thetas (theta0, theta1, ...) saca         #
+##              la prediccion de classificacion one vs all - logistic regression        #        
+##              de los ejemplos en Xpred.                                               #
+##                                                                                      #
+##      input:                                                                          #
+##                                                                                      #
+##              thetas -- Matriz n x m donde n es el numero de features de X i          #
+##                        m es el numero de clases en one vs all.                       #        
+##                                                                                      #
+##              Xpred -- El data set para hacer predicciones del modelo.                #
+##                                                                                      #
+##      output:                                                                         #
+##                                                                                      #
+##              ypred -- La clasificacion en clases de los ejemplos en Xpred.           #
+##                                                                                      #
+##                                                                                      #
+#########################################################################################        
 
         ## clasificadores para el set Xpred.
         # Anadimos el intercept term x0 = 1 para el metodo
