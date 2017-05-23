@@ -137,6 +137,7 @@ server <- function(input, output, session) {
                                                     value = "") 
                 
                                 output$barDiagr2 <- renderPlot(
+                                                        # si la ventana de plots en RStudio no permite graficar, esto da error.
                                                         par(bg= "black"),
                                                         barplot(0))             
                              
