@@ -10,9 +10,9 @@ tratayPredice <- function(texto){
 ##  tratayPredice(texto)                                                                #        
 ##                                                                                      #
 ##      Script que toma un texto (plain) con el objetivo de transformarlo al espacio    #
-##      de la matriz TF-IDF para así poder hacer prediccion de clasificacion con él.    #
+##      de la matriz TF-IDF para as? poder hacer prediccion de clasificacion con ?l.    #
 ##                                                                                      #
-##      Luego el texto se classifica según el modelo entrenado seleccionado que puede   #
+##      Luego el texto se classifica seg?n el modelo entrenado seleccionado que puede   #
 ##      encontrarse en "./modelos/" de tipo svm o logistic one vs all.                  #        
 ##                                                                                      #
 ##  input:                                                                              #
@@ -48,7 +48,8 @@ incProgress(0.25, detail= "Loading trained model...")
                 # Cargamos el modelo entrenado.
                 #load("./modelos/WS_logist_5000_76point5.RData")
                 #load("./modelos/WS_logist_7500_78point5.RData")
-                load("./modelos/WS_logist_19997_81point4.RData")
+                #load("./modelos/WS_logist_19997_81point4.RData")
+                load("./modelos/WS_logist_19997_77point5.RData")
 
         } else {
                 # Cargamos el modelo entrenado.
